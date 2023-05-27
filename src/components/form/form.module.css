@@ -1,0 +1,11 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  background-color: var(--light-gray);
+  color: var(--black);
+  padding: 40px;
+}
+
+.form button {
+}

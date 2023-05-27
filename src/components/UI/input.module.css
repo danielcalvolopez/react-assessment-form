@@ -1,0 +1,16 @@
+.input {
+  height: 50px;
+  background-color: transparent;
+  border: 1px solid gray;
+  padding: 0 20px;
+  font-size: 15px;
+  outline: none;
+}
+
+.input::placeholder {
+}
+
+.input:focus {
+  border: 1px solid var(--medium-orange);
+  background-color: #bf571b15;
+}

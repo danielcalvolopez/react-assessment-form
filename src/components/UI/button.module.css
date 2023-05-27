@@ -1,0 +1,14 @@
+.button {
+  height: 50px;
+  background-color: transparent;
+  border: 1px solid var(--medium-orange);
+  color: var(--medium-orange);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #bf571b4b;
+}

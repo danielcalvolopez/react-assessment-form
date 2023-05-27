@@ -1,0 +1,14 @@
+.form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.label {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.label span {
+  color: red;
+}
