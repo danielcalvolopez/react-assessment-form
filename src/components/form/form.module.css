@@ -7,5 +7,7 @@
   padding: 40px;
 }
 
-.form button {
+.error {
+  color: red;
+  text-align: center;
 }
