@@ -1,52 +1,69 @@
 import Form from "./components/form/Form";
 import FormItem from "./components/form/FormItem";
 import classes from "./app.module.css";
-import { useForm } from "react-hook-form";
-import schemaValidation from "./utils/validationsSchema";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { useFormik } from "formik";
+import schema from "./utils/schema";
 
 const App = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schemaValidation),
-  });
-
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (values, actions) => {
+    console.log(values);
+    console.log(actions);
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    actions.resetForm();
   };
+
+  const {
+    values,
+    errors,
+    isSubmitting,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+  } = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      phone: "",
+    },
+    validationSchema: schema,
+    onSubmit,
+  });
 
   return (
     <div className={classes.container}>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form isSubmitting={isSubmitting} onSubmit={handleSubmit}>
         <FormItem
-          errors={errors.name?.message}
-          register={register}
+          errors={errors.name}
+          value={values.name}
           required
-          title="name"
           label="name"
           placeholder="John Doe"
           type="text"
+          onBlur={handleBlur}
+          onChange={handleChange}
+          id="name"
         />
         <FormItem
-          errors={errors.email?.message}
-          register={register}
+          errors={errors.email}
+          value={values.email}
           required
-          title="email"
           label="email"
           placeholder="john@doe.com"
           type="text"
+          onBlur={handleBlur}
+          onChange={handleChange}
+          id="email"
         />
         <FormItem
-          errors={errors.phone?.message}
-          register={register}
+          errors={errors.phone}
+          value={values.phone}
           required
-          title="phone"
           label="phone number"
           placeholder="07123456789"
           type="number"
+          onBlur={handleBlur}
+          onChange={handleChange}
+          id="phone"
         />
       </Form>
     </div>

@@ -5,10 +5,13 @@ const FormItem = ({
   label,
   placeholder,
   type,
-  title,
   required,
-  register,
   errors,
+  value,
+  touched,
+  onChange,
+  onBlur,
+  id,
 }) => {
   return (
     <div className={classes["form-item"]}>
@@ -17,11 +20,15 @@ const FormItem = ({
         {label}
       </label>
       <Input
-        register={register}
-        title={title}
+        onBlur={onBlur}
+        onChange={onChange}
         required={required}
         placeholder={placeholder}
         type={type}
+        touched={touched}
+        value={value}
+        id={id}
+        errors={errors}
       />
       {errors && <p className={classes.error}>{errors}</p>}
     </div>

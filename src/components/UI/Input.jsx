@@ -1,14 +1,25 @@
 import classes from "./input.module.css";
 
-const Input = ({ type, placeholder, value, onChange, title, register }) => {
+const Input = ({
+  type,
+  placeholder,
+  value,
+  onChange,
+  id,
+  onBlur,
+  touched,
+  errors,
+}) => {
   return (
     <input
-      {...register(title, { required: true })}
-      className={classes.input}
+      className={`${errors ? classes.error : classes.input}`}
       type={type}
       placeholder={placeholder}
       value={value}
       onChange={onChange}
+      onBlur={onBlur}
+      touched={touched}
+      id={id}
     />
   );
 };
