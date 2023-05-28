@@ -3,16 +3,16 @@ import FormItem from "./components/form/FormItem";
 import classes from "./app.module.css";
 import { useFormik } from "formik";
 import schema from "./utils/schema";
-
+import { doc, setDoc } from "firebase/firestore";
 import SuccessSubmitModal from "./components/form/SuccessSubmitModal";
 import { useState } from "react";
+import { db } from "./firebase_setup/firebase";
 
 const App = () => {
   const [toggleModal, setToggleModal] = useState(false);
 
   const onSubmit = async (values, actions) => {
-    console.log(values);
-    console.log(actions);
+    await setDoc(doc(db, "users", "new-user"), values);
     await new Promise((resolve) => setTimeout(resolve, 1000));
     actions.resetForm();
     setToggleModal(true);
