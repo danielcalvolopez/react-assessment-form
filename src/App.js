@@ -4,7 +4,7 @@ import schema from "./utils/schema";
 import { doc, setDoc } from "firebase/firestore";
 import SuccessSubmitModal from "./components/form/SuccessSubmitModal";
 import { useState } from "react";
-import { db } from "./firebase_setup/firebase";
+import { db } from "./firebase/firebase";
 import { v4 as uuidv4 } from "uuid";
 import UserForm from "./components/form/UserForm";
 
