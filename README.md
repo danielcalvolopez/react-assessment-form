@@ -1,3 +1,5 @@
+FORM WITH REACT, FORMIK, YUP AND FIREBASE
+
 Install dependencies: npm install (Have in mind that this project uses a firestore database to store the data submitted, and my keys are kept locally within my environment variables)
 
 Start development mode: npm start
